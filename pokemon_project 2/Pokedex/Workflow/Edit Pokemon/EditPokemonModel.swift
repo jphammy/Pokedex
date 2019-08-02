@@ -1,13 +1,30 @@
 import Foundation
-// - **NickName** **MUST** be at least 3 characters long
+// **NickName** **MUST** be at least 3 characters long
 // **CurrentLevel** and **CurrentExperience** **MUST** be numbers
+
 struct user {
     var NickName = ""
     var CurrentLevel = ""
     var CurrentExperience = ""
 }
 
-class userData {
+final class EditPokemonModel {
+    let pokemonServiceClient: PokemonServiceClient
+    let pokemonPersistence: PokemonPersistence
+    
+    init(pokemonServiceClient: PokemonServiceClient, pokemonPersistence: PokemonPersistence) {
+        self.pokemonServiceClient = pokemonServiceClient
+        self.pokemonPersistence = pokemonPersistence
+    }
+    
+    func savePokemon(caughtPokemon: CaughtPokemon) {
+        self.pokemonPersistence.save(pokemon: caughtPokemon)
+    }
+    
+    //Insert spriteImageData func here
+    
+    
+    //Validation adapted from proj 3, still a work in progress
     var myUser = [user]()
     var displayUser = [String]()
     var inputTracker = [String]()

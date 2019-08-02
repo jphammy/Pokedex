@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="6EY-qZ-Hz1" kind="relationship" relationship="rootViewController" id="RT2-MQ-ScI"/>
+                        <segue destination="rtA-uj-d1o" kind="relationship" relationship="rootViewController" id="VZt-S9-ZAr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKj-wJ-f8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -34,115 +34,71 @@
             </objects>
             <point key="canvasLocation" x="1053" y="-32"/>
         </scene>
-        <!--Pokemon List-->
-        <scene sceneID="1Mx-zy-jwe">
+        <!--My Pokemon-->
+        <scene sceneID="SRt-oi-saO">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="6EY-qZ-Hz1" customClass="ClassListViewController" customModule="myGpaCalculator" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qvt-TR-ioL">
+                <viewController id="rtA-uj-d1o" customClass="MyPokemonListViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iuX-aU-YTX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lXp-C9-w2o">
-                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z2b-gD-YKu">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QYf-V6-Plh">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="603"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="thX-lP-NO8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PokemonCell" rowHeight="100" id="a3b-ge-IGa" customClass="ClassListTableViewCell" customModule="myGpaCalculator">
-                                                <rect key="frame" x="0.0" y="28" width="343" height="100"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PokemonListCell" textLabel="ibv-hB-pTV" style="IBUITableViewCellStyleDefault" id="FSv-ar-89T">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a3b-ge-IGa" id="sUM-sO-9wr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="99.5"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FSv-ar-89T" id="E1i-bf-CIs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="IuK-SU-2fc" userLabel="Cell Stack View">
-                                                            <rect key="frame" x="15" y="11" width="313" height="78"/>
-                                                            <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SFg-Cq-o6j" userLabel="Left Stack View">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="156.5" height="78"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Class Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuR-ZJ-uKW">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="91" height="36.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYg-9z-0sM">
-                                                                            <rect key="frame" x="0.0" y="41.5" width="96" height="36.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vZD-e0-TbV" userLabel="Right Stack View">
-                                                                    <rect key="frame" x="156.5" y="0.0" width="156.5" height="78"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNX-EO-Z0H">
-                                                                            <rect key="frame" x="78.5" y="0.0" width="78" height="23.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grade" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anP-Hz-Js8">
-                                                                            <rect key="frame" x="109.5" y="27.5" width="47" height="23"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Hours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYv-W1-cCA">
-                                                                            <rect key="frame" x="59.5" y="54.5" width="97" height="23.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                                </stackView>
-                                                            </subviews>
-                                                        </stackView>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ibv-hB-pTV">
+                                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="IuK-SU-2fc" secondAttribute="trailing" id="0U6-XR-YcJ"/>
-                                                        <constraint firstItem="IuK-SU-2fc" firstAttribute="top" secondItem="sUM-sO-9wr" secondAttribute="topMargin" id="LfB-iR-ePq"/>
-                                                        <constraint firstItem="IuK-SU-2fc" firstAttribute="leading" secondItem="sUM-sO-9wr" secondAttribute="leadingMargin" id="STq-KV-saP"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="IuK-SU-2fc" secondAttribute="bottom" id="vch-w8-2Ud"/>
-                                                    </constraints>
                                                 </tableViewCellContentView>
-                                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                <connections>
-                                                    <segue destination="bjL-uc-FKc" kind="show" id="QJk-H6-MBs"/>
-                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="P0I-PZ-gwb">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lXp-C9-w2o" firstAttribute="leading" secondItem="qvt-TR-ioL" secondAttribute="leadingMargin" id="2Kg-XA-npl"/>
-                            <constraint firstItem="kE0-94-T3A" firstAttribute="bottom" secondItem="lXp-C9-w2o" secondAttribute="bottom" id="Il7-EM-ymg"/>
-                            <constraint firstItem="lXp-C9-w2o" firstAttribute="trailing" secondItem="qvt-TR-ioL" secondAttribute="trailingMargin" id="TRt-Ac-WKO"/>
-                            <constraint firstItem="lXp-C9-w2o" firstAttribute="top" secondItem="kE0-94-T3A" secondAttribute="top" id="enD-fC-oaO"/>
+                            <constraint firstItem="oew-4t-hnI" firstAttribute="trailing" secondItem="P0I-PZ-gwb" secondAttribute="trailing" id="1Yx-ml-aOl"/>
+                            <constraint firstItem="P0I-PZ-gwb" firstAttribute="leading" secondItem="oew-4t-hnI" secondAttribute="leading" id="1eA-Xd-mPK"/>
+                            <constraint firstItem="oew-4t-hnI" firstAttribute="trailing" secondItem="Z2b-gD-YKu" secondAttribute="trailing" id="7V5-w5-vif"/>
+                            <constraint firstItem="oew-4t-hnI" firstAttribute="bottom" secondItem="P0I-PZ-gwb" secondAttribute="bottom" id="CCK-Ps-VIt"/>
+                            <constraint firstItem="P0I-PZ-gwb" firstAttribute="top" secondItem="oew-4t-hnI" secondAttribute="top" id="G6T-EB-84S"/>
+                            <constraint firstItem="Z2b-gD-YKu" firstAttribute="top" secondItem="oew-4t-hnI" secondAttribute="top" id="Szg-hM-Bki"/>
+                            <constraint firstItem="oew-4t-hnI" firstAttribute="bottom" secondItem="Z2b-gD-YKu" secondAttribute="bottom" id="WOx-w8-Xca"/>
+                            <constraint firstItem="Z2b-gD-YKu" firstAttribute="leading" secondItem="oew-4t-hnI" secondAttribute="leading" id="ji8-RB-GU8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="kE0-94-T3A"/>
+                        <viewLayoutGuide key="safeArea" id="oew-4t-hnI"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Pokemon List" id="6Je-JR-LfY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wZd-Hq-LLt">
+                    <navigationItem key="navigationItem" title="My Pokemon" id="9ev-d9-sW0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7At-if-6Ke">
                             <connections>
-                                <segue destination="bjL-uc-FKc" kind="show" id="YdF-tL-NHz"/>
+                                <segue destination="bjL-uc-FKc" kind="show" id="VXi-Se-Y0P"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="okS-fq-qbJ" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Lg-Bm-lrE" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="-4"/>
+            <point key="canvasLocation" x="-42" y="-32"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="QJk-H6-MBs"/>
-    </inferredMetricsTieBreakers>
 </document>
