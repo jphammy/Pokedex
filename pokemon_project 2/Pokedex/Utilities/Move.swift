@@ -1,11 +1,15 @@
 import Foundation
 
 #warning("Story 1")
-//NEED TO IMPLEMENT CODING KEYS
 
 struct Move: Decodable, DetailDataType, SelectionDataType {
     let move: NameUrlPair
     let versionGroupDetails: [VersionGroupDetail]
+    
+    private enum CodingKeys: String, CodingKey {
+        case move
+        case versionGroupDetails = "version_group_details"
+    }
     
     var detail: Detail {
         return Detail(

@@ -1,11 +1,15 @@
 import Foundation
 
 #warning("Story 1")
-//NEED TO IMPLEMENT CODING KEYS
 
 struct HeldItem: Codable, DetailDataType, SelectionDataType {
     let item: NameUrlPair
     let versionDetails: [VersionRarity]
+    
+    private enum CodingKeys: String, CodingKey {
+        case item
+        case versionDetails = "version_details"
+    }
     
     var detail: Detail {
         return Detail(

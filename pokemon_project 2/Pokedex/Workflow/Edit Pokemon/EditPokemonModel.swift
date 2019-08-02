@@ -1,70 +1,30 @@
 import Foundation
-// - **NickName** **MUST** be at least 3 characters long
-// **CurrentLevel** and **CurrentExperience** **MUST** be numbers
-struct user {
-    var NickName = ""
-    var CurrentLevel = ""
-    var CurrentExperience = ""
-}
 
-class userData {
-    var myUser = [user]()
-    var displayUser = [String]()
-    var inputTracker = [String]()
+final class EditPokemonModel {
+    let pokemonServiceClient: PokemonServiceClient
+    let pokemonPersistence: PokemonPersistence
+    private weak var delegate: MyPokemonListModelDelegate?
     
-    func addNewUser(NickName:String, CurrentLevel:String, CurrentExperience:String) {
-        let newUser = user(NickName: NickName, CurrentLevel: CurrentLevel, CurrentExperience: CurrentExperience)
- 
-        displayUser.append("NickName: \(newUser.NickName)\nCurrentLevel: \(newUser.CurrentLevel)\nCurrentExperience: \(newUser.CurrentExperience)")
-        myUser.append(newUser)
-        inputTracker = []
+    init(pokemonServiceClient: PokemonServiceClient, pokemonPersistence: PokemonPersistence, delegate: MyPokemonListModelDelegate) {
+        self.pokemonServiceClient = pokemonServiceClient
+        self.pokemonPersistence = pokemonPersistence
+        self.delegate = delegate
     }
     
-    func validNickName (NickName: String) -> String {
-        if (NickName.isEmpty){
-            return ("A NickName is required")
-        }
-        else if (NickName.count) < 3  {
-            return "NickName must be at least 3 characters" //Must be at least 3 letters
-        }
-        else {
-            inputTracker.append("NickName")
-            return ""
-        }
+    func savePokemon(caughtPokemon: CaughtPokemon) {
+        self.pokemonPersistence.save(pokemon: caughtPokemon)
+        self.delegate?.dataChanged()
     }
     
-    func validCurrentLevel (CurrentLevel: String) -> String {
-        if (CurrentLevel.isEmpty){
-            return ("CurrentLevel is required")
+    func getSpriteNameDataPair(pokemon: Pokemon, selectedSprite: String ) -> NameDataPair {
+        var nameDataPair: NameDataPair?
+        let nameDataPairs = pokemonServiceClient.getSpriteData(sprites: pokemon.sprites.sprites)
+        for pair in nameDataPairs {
+            if pair.name == selectedSprite {
+                nameDataPair = pair
+                break
+            }
         }
-        else if (CurrentLevel.count) < 1  {
-            return "CurrentLevel must be at least 1 character"
-        }
-        else {
-            inputTracker.append("CurrentLevel")
-            return ""
-        }
-    }
-    
-    func validCurrentExperience (CurrentExperience: String) -> String {
-        if (CurrentExperience.count < 1) {
-            return "CurrentExperience must be at least 1 character"
-        }
-        else {
-            inputTracker.append("CurrentExperience")
-            return ""
-        }
-    }
-    
-    func validInputs() -> Bool {
-        if inputTracker.contains("NickName"), inputTracker.contains("CurrentLevel"), inputTracker.contains("CurrentExperience")
-        {
-            return true
-        }
-        else {
-            return false
-        }
+        return nameDataPair!
     }
 }
-
-

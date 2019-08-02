@@ -1,11 +1,15 @@
 import Foundation
 
 #warning("Story 1")
-//NEED TO IMPLEMENT CODING KEYS
 
 struct VersionGameIndex: Decodable, DetailDataType {
     let gameIndex: Int
     let version: NameUrlPair
+    
+    private enum CodingKeys: String, CodingKey {
+        case gameIndex = "game_index"
+        case version
+    }
     
     var detail: Detail {
         return Detail(
@@ -29,11 +33,16 @@ struct VersionRarity: Codable, DetailDataType {
     }
 }
 
-//NEED TO IMPLEMENT CODING KEYS
 struct VersionGroupDetail: Decodable, DetailDataType {
     let levelLearnedAt: Int
     let moveLearnMethod: NameUrlPair
     let versionGroup: NameUrlPair
+    
+    private enum CodingKeys: String, CodingKey {
+        case levelLearnedAt = "level_learned_at"
+        case moveLearnMethod = "move_learn_method"
+        case versionGroup = "version_group"
+    }
     
     var detail: Detail {
         return Detail(

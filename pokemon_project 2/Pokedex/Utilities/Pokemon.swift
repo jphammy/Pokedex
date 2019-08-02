@@ -4,8 +4,6 @@ import Foundation
 
 typealias PokemonDisplayProperties = (title: String, value: String, detailType: Detail.DataType?)
 
-//NEED TO IMPLEMENT CODING KEYS
-//NEED TO IMPLEMENT init(from decoder: Decoder)
 struct Pokemon: Decodable {
     let id: Int
     let name: String
@@ -18,12 +16,57 @@ struct Pokemon: Decodable {
     let forms: [NameUrlPair]
     let gameIndices: [VersionGameIndex]
     let heldItems: [HeldItem]
-    let locationAreaEncounters: String
+    let locationAreaEncounters: URL
     let moves: [Move]
-    let sprites: [NameUrlPair]
+    let sprites: SpritesFromService
     let species: NameUrlPair
     let stats: [Stat]
     let types: [Type]
+    
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case baseExperience = "base_experience"
+        case height
+        case isDefault = "is_default"
+        case order
+        case weight
+        case abilities
+        case forms
+        case gameIndices = "game_indices"
+        case heldItems = "held_items"
+        case locationAreaEncounters = "location_area_encounters"
+        case moves
+        case sprites
+        case species
+        case stats
+        case types
+    }
+    //test
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        id = try container.decode(Int.self, forKey: .id)
+//        name = try container.decode(String.self, forKey: .name)
+//        baseExperience = try container.decode(Int.self, forKey: .baseExperience)
+//        height = try container.decode(Int.self, forKey: .height)
+//        isDefault = try container.decode(Bool.self, forKey: .isDefault)
+//        order = try container.decode(Int.self, forKey: .order)
+//        weight = try container.decode(Int.self, forKey: .weight)
+//        abilities = try container.decode([Ability].self, forKey: .abilities)
+//        forms = try container.decode([NameUrlPair].self, forKey: .forms)
+//        gameIndices = try container.decode([VersionGameIndex].self, forKey: .gameIndices)
+//        heldItems = try container.decode([HeldItem].self, forKey: .heldItems)
+//        guard let url = try URL(string: container.decode(String.self, forKey: .locationAreaEncounters)) else {
+//            throw DecodingError.dataCorrupted(.init(codingPath: [CodingKeys.locationAreaEncounters], debugDescription: "Expecting string representation of URL"))
+//        }
+//        locationAreaEncounters = url
+//        moves = try container.decode([Move].self, forKey: .moves)
+//
+//        sprites = try container.decode(SpritesFromService.self, forKey: .sprites)
+//        species = try container.decode(NameUrlPair.self, forKey: .species)
+//        stats = try container.decode([Stat].self, forKey: .stats)
+//        types = try container.decode([Type].self, forKey: .types)
+//    }
     
     var displayProperties: [PokemonDisplayProperties] {
         return [
@@ -38,7 +81,6 @@ struct Pokemon: Decodable {
             (title: "Forms:", value: "\(details(forDataType: .forms).count)", detailType: .forms),
             (title: "Game Indices:", value: "\(details(forDataType: .gameIndicies).count)", detailType: .gameIndicies),
             (title: "Held Items:", value: "\(details(forDataType: .heldItems).count)", detailType: .heldItems),
-//            (title: "Location Area Encounters", value: "\(locationAreaEncounters)", detailType: nil),
             (title: "Moves:", value: "\(details(forDataType: .moves).count)", detailType: .moves),
             (title: "Sprites:", value: "\(details(forDataType: .sprites).count)", detailType: .sprites),
             (title: "Species:", value: "\(species.name)", detailType: nil),
@@ -58,7 +100,7 @@ extension Pokemon: DetailViewable {
         case .versionDetails: return []
         case .moves: return moves.map { $0.detail }
         case .versionGroupDetails: return []
-        case .sprites: return sprites.map { $0.detail }
+        case .sprites: return []
         case .stats: return stats.map { $0.detail }
         case .types: return types.map { $0.detail }
         }
@@ -70,7 +112,7 @@ extension Pokemon: Selectable {
         switch dataType {
         case .heldItems: return heldItems.map { $0.asSelection }
         case .moves: return moves.map { $0.asSelection }
-        case .sprites: return sprites.map { $0.asSelection }
+        case .sprites: return []
         }
     }
 }

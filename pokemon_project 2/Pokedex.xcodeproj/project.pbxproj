@@ -48,8 +48,10 @@
 		41EFAFF722EE6B6500498D54 /* InputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EFAFF622EE6B6500498D54 /* InputType.swift */; };
 		41FC615B22EECF8100709D56 /* MyPokemonList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41FC615A22EECF8100709D56 /* MyPokemonList.storyboard */; };
 		42A6747A22F121BA005B1E42 /* EditPokemon.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A6747922F121BA005B1E42 /* EditPokemon.storyboard */; };
-		42A6747C22F12240005B1E42 /* EditPokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6747B22F12240005B1E42 /* EditPokemonViewController.swift */; };
+		42A6747C22F12240005B1E42 /* EditPokemonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6747B22F12240005B1E42 /* EditPokemonTableViewController.swift */; };
 		42A6748022F12EC5005B1E42 /* EditPokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6747F22F12EC4005B1E42 /* EditPokemonModel.swift */; };
+		42A6748222F3D3C0005B1E42 /* MyPokemonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6748122F3D3C0005B1E42 /* MyPokemonListViewController.swift */; };
+		42A6748422F3D3D0005B1E42 /* MyPokemonListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A6748322F3D3D0005B1E42 /* MyPokemonListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,8 +98,10 @@
 		41EFAFF622EE6B6500498D54 /* InputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputType.swift; sourceTree = "<group>"; };
 		41FC615A22EECF8100709D56 /* MyPokemonList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPokemonList.storyboard; sourceTree = "<group>"; };
 		42A6747922F121BA005B1E42 /* EditPokemon.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditPokemon.storyboard; sourceTree = "<group>"; };
-		42A6747B22F12240005B1E42 /* EditPokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPokemonViewController.swift; sourceTree = "<group>"; };
+		42A6747B22F12240005B1E42 /* EditPokemonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPokemonTableViewController.swift; sourceTree = "<group>"; };
 		42A6747F22F12EC4005B1E42 /* EditPokemonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPokemonModel.swift; sourceTree = "<group>"; };
+		42A6748122F3D3C0005B1E42 /* MyPokemonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonListViewController.swift; sourceTree = "<group>"; };
+		42A6748322F3D3D0005B1E42 /* MyPokemonListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPokemonListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				41FC615A22EECF8100709D56 /* MyPokemonList.storyboard */,
+				42A6748122F3D3C0005B1E42 /* MyPokemonListViewController.swift */,
+				42A6748322F3D3D0005B1E42 /* MyPokemonListModel.swift */,
 			);
 			path = "My Pokemon List";
 			sourceTree = "<group>";
@@ -276,7 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				42A6747922F121BA005B1E42 /* EditPokemon.storyboard */,
-				42A6747B22F12240005B1E42 /* EditPokemonViewController.swift */,
+				42A6747B22F12240005B1E42 /* EditPokemonTableViewController.swift */,
 				42A6747F22F12EC4005B1E42 /* EditPokemonModel.swift */,
 			);
 			path = "Edit Pokemon";
@@ -362,6 +368,7 @@
 			files = (
 				41A3C41D22EE42AD00583D5B /* SpeciesSelectionViewController.swift in Sources */,
 				41BE42E822EE184000CA814A /* Stat.swift in Sources */,
+				42A6748222F3D3C0005B1E42 /* MyPokemonListViewController.swift in Sources */,
 				41BE430222EE28F900CA814A /* Log.swift in Sources */,
 				41BE430422EE2CEA00CA814A /* Detail.swift in Sources */,
 				41BE42FC22EE251F00CA814A /* DetailListViewController.swift in Sources */,
@@ -385,7 +392,7 @@
 				41BE42E222EE17C100CA814A /* Ability.swift in Sources */,
 				41BE430022EE258300CA814A /* DetailListModel.swift in Sources */,
 				41BE42F022EE1D4F00CA814A /* Selection.swift in Sources */,
-				42A6747C22F12240005B1E42 /* EditPokemonViewController.swift in Sources */,
+				42A6747C22F12240005B1E42 /* EditPokemonTableViewController.swift in Sources */,
 				41BE42DA22EE0B5A00CA814A /* PokemonServiceClient.swift in Sources */,
 				41BE42E022EE178000CA814A /* SpritesFromService.swift in Sources */,
 				41A3C42422EE4DB400583D5B /* SpeciesViewController.swift in Sources */,
@@ -393,6 +400,7 @@
 				41BE42C422EE085400CA814A /* Pokemon.swift in Sources */,
 				41A3C42122EE437B00583D5B /* SpeciesSelectionModel.swift in Sources */,
 				41BE42E422EE17D900CA814A /* Version.swift in Sources */,
+				42A6748422F3D3D0005B1E42 /* MyPokemonListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

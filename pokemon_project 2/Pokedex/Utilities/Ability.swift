@@ -1,12 +1,17 @@
 import Foundation
 
 #warning("Story 1")
-//NEED TO IMPLEMENT CODING KEYS
 
 struct Ability: Decodable, DetailDataType {
     let ability: NameUrlPair
     let isHidden: Bool
     let slot: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case ability
+        case isHidden = "is_hidden"
+        case slot
+    }
     
     var detail: Detail {
         return Detail(
